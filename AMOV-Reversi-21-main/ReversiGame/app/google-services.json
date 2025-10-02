@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "481791993578",
+    "project_id": "reversigame-14c35",
+    "storage_bucket": "reversigame-14c35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481791993578:android:6d588ea91cf88f7ff6d993",
+        "android_client_info": {
+          "package_name": "com.example.reversigame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481791993578-7g19l23aq1093t68ti4ig3dflesq0g4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.reversigame",
+            "certificate_hash": "053437fc70360c7f6b6c7a4a7a052c79a361b351"
+          }
+        },
+        {
+          "client_id": "481791993578-b4e6rt681ung2ohmk4vqmvphg01osaqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAExVI6M95SNmdXYcidH-QGp8Hq0XVoHJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481791993578-b4e6rt681ung2ohmk4vqmvphg01osaqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

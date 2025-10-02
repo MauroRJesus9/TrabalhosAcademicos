@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.reversigame">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ReversiGame">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Historico"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Perfil"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".JogarMenu"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".game.Modo1"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".JogarMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".JogarMenu" />
+        </activity>
+        <activity
+            android:name=".Camera"
+            android:exported="false"
+            android:launchMode="singleTask">
+        </activity>
+
+        <activity
+            android:name=".authentication.Auth"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".Perfil">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Perfil" />
+        </activity>
+
+        <activity
+            android:name=".game.Modo2"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".game.Modo2Escolha">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".game.Modo2Escolha" />
+        </activity>
+
+        <activity
+            android:name=".game.Modo2Escolha"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:parentActivityName=".JogarMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".JogarMenu" />
+        </activity>
+
+    </application>
+
+</manifest>
