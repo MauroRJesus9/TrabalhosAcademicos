@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/drawable/black_stone.xml" value="0.3769230769230769" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/drawable/white_stone.xml" value="0.3769230769230769" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_auth.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_camera.xml" value="0.22509057971014493" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_historico.xml" value="0.2341485507246377" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_jogar.xml" value="0.25" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_modo1.xml" value="0.26313405797101447" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_modo2.xml" value="0.330749354005168" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_modo2escolha.xml" value="0.3434343434343434" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/activity_perfil.xml" value="0.25" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/game_top.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/grid_place.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/historico.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/item_historico.xml" value="0.25" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/layout/set_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/menu/menu_gravar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/menu/menu_principal.xml" value="0.36666666666666664" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25" />
+        <entry key="..\:/Ruben/ISEC/AMOV/ReversiGame/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.25" />
+        <entry key="..\:/Ruben/ISEC/AMOV/VersaoPedro/ReversiGame/app/src/main/res/drawable/black_stone.xml" value="0.3769230769230769" />
+        <entry key="..\:/Ruben/ISEC/AMOV/VersaoPedro/ReversiGame/app/src/main/res/drawable/red_stone.xml" value="0.3769230769230769" />
+        <entry key="..\:/Ruben/ISEC/AMOV/VersaoPedro/ReversiGame/app/src/main/res/layout/activity_modo1.xml" value="0.23731884057971014" />
+        <entry key="..\:/Ruben/ISEC/AMOV/VersaoPedro/ReversiGame/app/src/main/res/layout/activity_perfil.xml" value="0.2441123188405797" />
+        <entry key="..\:/Ruben/ISEC/AMOV/VersaoPedro/ReversiGame/app/src/main/res/layout/grid_place.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/HP/Desktop/Pedro Ramos/ISEC/AMOV_AS_ASCII/AMOVTP/ReversiGame/app/src/main/res/layout/activity_jogar.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/HP/Desktop/Pedro Ramos/ISEC/AMOV_AS_ASCII/AMOVTP/ReversiGame/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/HP/Desktop/Pedro Ramos/ISEC/AMOV_AS_ASCII/AMOVTP/ReversiGame/app/src/main/res/layout/activity_modo1.xml" value="0.22592592592592592" />
+        <entry key="..\:/Users/HP/Desktop/Pedro Ramos/ISEC/AMOV_AS_ASCII/AMOVTP/ReversiGame/app/src/main/res/layout/activity_perfil.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/HP/Desktop/Pedro Ramos/ISEC/AMOV_AS_ASCII/AMOVTP/ReversiGame/app/src/main/res/layout/set_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Utilizador/AndroidStudioProjects/ReversiGame/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mauro/Desktop/ISEC/3oAno/1oSemestre/ReversiGame/app/src/main/res/layout/activity_camera.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mauro/Desktop/ISEC/3oAno/1oSemestre/ReversiGame/app/src/main/res/layout/activity_perfil.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/mauro/Downloads/ReversiGame/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.36666666666666664" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

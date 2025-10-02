@@ -1,0 +1,83 @@
+﻿@model List<HabitAqui.ViewModels.Funcionarios.FuncionarioViewModel>
+@{
+    ViewData["Title"] = "Lista Funcionarios";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["ErroMensagem"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErroMensagem"]
+    </div>
+}
+
+<div class="d-flex justify-content-between">
+
+	@if (this.User.IsInRole("Gestor"))
+	{
+		<div>
+			<a asp-action="Create" class="btn btn-success m-1"><svg bootstrap-icon="Plus" width="24" height="24"></svg>Criar um funcionario</a>
+		</div>
+	}
+	
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-primary">Novo Funcionário</a>
+</div>
+
+@if (Model.Count > 0){
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Nr. Arrendamentos</th>
+                <th>Ativo</th>
+                <th>Role</th>
+                <th>Ações</th>
+                <!-- Adicionar outras colunas conforme necessário -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in Model)
+            {
+                <tr>
+                    <td>@usuario.Username</td>
+                    <td>@usuario.NrArrendamentos</td>
+                    <td>@(usuario.Ativo ? "Sim" : "Não")</td>
+                    <td>@usuario.Role</td>
+                    <!-- Adicionar outras colunas conforme necessário -->
+                    <td>
+                        <div class="btn-group">
+                            <!-- Botões de Ativar/Inativar -->
+                            @if (usuario.Ativo)
+                            {
+                                <form asp-controller="Funcionarios" asp-action="AtivarInativar" method="post">
+                                    <input type="hidden" name="userId" value="@usuario.Id" />
+                                    <button type="submit" class="btn btn-danger">Inativar</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form asp-controller="Funcionarios" asp-action="AtivarInativar" method="post">
+                                    <input type="hidden" name="userId" value="@usuario.Id" />
+                                    <button type="submit" class="btn btn-success">Ativar</button>
+                                </form>
+                            }
+
+                            <!-- Botão de Eliminar -->
+                            <form asp-controller="Funcionarios" asp-action="Delete" method="post">
+                                <input type="hidden" name="userId" value="@usuario.Id" />
+                                <button type="submit" class="btn btn-warning">Eliminar</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum funcionário ou gestor encontrado para esta empresa.</p>
+}

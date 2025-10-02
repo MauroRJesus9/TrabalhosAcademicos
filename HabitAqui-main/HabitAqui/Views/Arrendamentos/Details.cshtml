@@ -1,0 +1,131 @@
+﻿@model HabitAqui.Models.Arrendamentos
+
+@{
+    ViewData["Title"] = "Details";
+    var imagens = ViewData["Imagens"] as List<string>;
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Arrendamentos</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Custo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Custo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Empresa)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Empresa.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstadoInicial)
+        </dt>
+        <dd class = "col-sm-10">
+            <label>Equipamentos Opcionais:</label>
+            @Html.DisplayFor(model => model.EstadoInicial.EquipamentosOpcionais)
+            <br />
+            <label>Dano:</label>
+            @Html.DisplayFor(model => model.EstadoInicial.Dano)
+            <br />
+            <label>Observaçoes:</label>
+            @Html.DisplayFor(model => model.EstadoInicial.Observações)
+            <br />
+            <label>Funcionario de Entrega:</label>
+            @Html.DisplayFor(model => model.EstadoInicial.FuncionarioEntrega.NomeCompleto)
+            <br />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstadoFinal)
+        </dt>
+        <dd class="col-sm-10">
+            <label>Equipamentos Opcionais:</label>
+            @Html.DisplayFor(model => model.EstadoFinal.EquipamentosOpcionais)
+            <br />
+            <label>Dano:</label>
+            @Html.DisplayFor(model => model.EstadoFinal.Dano)
+            <br />
+            <label>Observaçoes:</label>
+            @Html.DisplayFor(model => model.EstadoFinal.Observações)
+            <br />
+            <label>Funcionario de Entrega:</label>
+            @Html.DisplayFor(model => model.EstadoFinal.FuncionarioEntrega.NomeCompleto)
+            <br />
+            <label>Imagem:</label>
+
+            @if (!string.IsNullOrEmpty(Model.CaminhoImagem))
+            {
+                <img src="~/img/@Model.CaminhoImagem" alt="Imagem" class="img-a img-fluid">
+            }
+            else
+            {
+                <p>Nenhuma imagem disponível.</p>
+            }
+           
+        </dd>
+
+        <div class="modal fade" id="modalImagem" tabindex="-1" role="dialog" aria-labelledby="modalImagemLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalImagemLabel">Imagem em Tamanho Real</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="imagemModal" src="" alt="Imagem em Tamanho Real" style="width: 100%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataInicio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataFim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataFim)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente.NomeCompleto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Habitacoes)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Habitacoes.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    // Script para atualizar dinamicamente a imagem no modal
+    $('.imagem-preview').on('click', function () {
+        var imagemSrc = $(this).attr('src');
+        $('#imagemModal').attr('src', imagemSrc);
+    });
+</script>

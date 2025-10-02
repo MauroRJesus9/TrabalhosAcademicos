@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    body {
+        /*background-image: url('Images/home_background.jpg');*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: beige;
+    }
+
+    h2 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    h1 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    h3 {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    p {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+</style>
+<div style="">
+    <h1 style="text-align:center"><b>Home</b></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <img src="~/Images/home_1.jpg" alt="Sample Photo" style="width: 100%; opacity: 80%; border-radius: 3%;" />
+            </div>
+        </div>
+        <br />
+        <br />
+        <h2 style="text-align:center"><b>Propriedades</b></h2>
+        <br />
+        <div class="row text-center">
+            <div class="col-sm">
+                <img src="~/Images/apartment.png" alt="Property Image" style="width: 50%; opacity: 80%; border-radius: 5%;" onclick="location.href='@Url.Action("Index","Properties", new {categoryId = 1 })'" />
+                <h3 style="text-align:center">Apartamentos</h3>
+            </div>
+            <div class="col-sm">
+                <img src="~/Images/moradia.png" alt="Property Image" style="width: 50%; opacity: 80%; border-radius: 5%; " onclick="location.href='@Url.Action("Index","Properties", new {categoryId = 2 })'" />
+                <h3 style="text-align:center">Moradias</h3>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-sm">
+                <img src="~/Images/logo.png" style="width: 5%; display: block; margin-left: auto; margin-right: auto;" />
+            </div>
+        </div>
+        <br />
+        <h2 style="text-align:center"><b>Sobre nós</b></h2>
+        <div class="row text-center" style="margin-right:10%; margin-left: 10%">
+            <div class="col-sm">
+                <p style="font-size: larger">
+                    No website MyAirBnb irá conseguir alugar as melhores casas ao melhor preço e se decidir ainda pode listar um imóvel como gestor podendo alugar a outros clientes através do painel de proprietário de imóvel, com todo o tipo
+                    de segurança e as melhores condições, o design do website foi pensado de forma a ter uma ótima usabilidade por todos os tipos de utilizadores.
+                    <br /> Para algum tipo de esclarecimento ou alguma melhoria a realizarmos por parte da nossa equipa, contacte-nos por email em <b>myairbnb@team.com</b>.
+                </p>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>

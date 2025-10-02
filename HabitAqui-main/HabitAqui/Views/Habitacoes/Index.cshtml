@@ -1,0 +1,34 @@
+﻿@model IEnumerable<HabitAqui.Models.Habitacoes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row g-5 portfolio-container">
+
+    @foreach (Habitacoes h in Model)
+    {
+
+        <div class="col-xl-4 col-lg-6 col-md-6 portfolio-item first">
+            <div class="position-relative portfolio-box">
+                @if (!string.IsNullOrEmpty(h.FotografiaCaminho))
+                {
+                    <img src="~/img/@h.FotografiaCaminho" alt="Imagem" class="img-a img-fluid">
+                }
+                else
+                {
+                    <p>Nenhuma imagem disponível.</p>
+                }
+                <a class="portfolio-title shadow-sm" href="">
+                    <p class="h4 text-uppercase">@h.Nome</p>
+                    <span class="text-body"><i class="fa fa-map-marker-alt text-primary me-2"></i>@h.Localidade</span>
+                    <span class="text-body"><i class="fa fa-euro-sign text-primary me-2"></i>@h.Preco p/Noite</span>
+                </a>
+                <a class="portfolio-btn" asp-controller="Habitacoes" asp-action="Details" asp-route-id="@h.Id" data-lightbox="portfolio">
+                    <i class="bi bi-plus text-white"></i>
+                </a>
+            </div>
+        </div>
+    }
+    
+</div>

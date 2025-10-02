@@ -1,0 +1,62 @@
+﻿@model TPV2.Models.ScoreClient
+
+@{
+    ViewData["Title"] = "Criar";
+}
+
+<h1>Criar</h1>
+
+<h4>Avaliação do Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <select asp-for="PropertyId" class="form-control" asp-items="ViewBag.PropertyId" hidden></select>
+            </div>
+            <div class="form-group">
+                <select asp-for="ReserveId" class="form-control" asp-items="ViewBag.ReserveId" hidden></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comments" class="control-label">Comentários</label>
+                <input asp-for="Comments" class="form-control" />
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScorePropriedade" class="control-label">Score Propriedade</label>
+                <input asp-for="ScorePropriedade" class="form-control" />
+                <span asp-validation-for="ScorePropriedade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreProprietario" class="control-label">Score Proprietário</label>
+                <input asp-for="ScoreProprietario" class="form-control" />
+                <span asp-validation-for="ScoreProprietario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select asp-for="ProprietarioId" class="form-control" asp-items="ViewBag.ProprietarioId" hidden></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScoreFuncionário" class="control-label">Score Funcionário</label>
+                <input asp-for="ScoreFuncionário" class="form-control" />
+                <span asp-validation-for="ScoreFuncionário" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FuncionarioId" class="control-label">Funcionário</label>
+                <select asp-for="FuncionarioId" class="form-control" asp-items="ViewBag.FuncionarioId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (!User.IsInRole("Cliente"))
+{
+    <div>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+}
+
+

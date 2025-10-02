@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".JogarMenu"
+    android:background="@drawable/fundo">
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="90sp"
+        app:srcCompat="@drawable/logo" />
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal|center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="120dp"
+        android:padding="40dp">
+
+        <Button
+            android:id="@+id/btnModo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modo1"
+            android:layout_margin="8dp"
+            android:onClick="onModo1"/>
+
+        <Button
+            android:id="@+id/btnModo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modo2"
+            android:layout_margin="8dp"
+            android:onClick="onModo2"/>
+
+        <Button
+            android:id="@+id/btnModo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modo3"
+            android:layout_margin="8dp"
+            android:onClick="onModo3"/>
+
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/voltar"
+            android:layout_margin="8dp"
+            android:onClick="onVoltar"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

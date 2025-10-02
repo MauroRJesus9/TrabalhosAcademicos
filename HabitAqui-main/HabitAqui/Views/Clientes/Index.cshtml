@@ -1,0 +1,100 @@
+﻿@model HabitAqui.ViewModels.Clientes.ClienteViewModel
+
+@{
+    ViewData["Title"] = "Listar Habitações";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["ErroMensagem"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErroMensagem"]
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Cliente", FormMethod.Post, new { @class = "d-flex flex-wrap align-items-start" }))
+{
+    <div class="form-group">
+        <label asp-for="CategoriaFiltro" class="control-label">Categoria:</label>
+        <select asp-for="CategoriaFiltro" asp-items="ViewBag.Categorias" class="form-control">
+            <option value="">Todas as Categorias</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EstadoFiltro" class="control-label">Estado:</label>
+        <select asp-for="EstadoFiltro" asp-items="ViewBag.Estados" class="form-control">
+            <option value="">Todos os Estados</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="LocalidadeFiltro" class="control-label">Localidade:</label>
+        <select asp-for="LocalidadeFiltro" asp-items="ViewBag.Localidade" class="form-control">
+            <option value="">Todas as Localidades</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="PeriodoMinimoArrendamentoFiltro" class="control-label">P.M.A:</label>
+        <select asp-for="PeriodoMinimoArrendamentoFiltro" asp-items="ViewBag.PeriodoMinimoArrendamento" class="form-control">
+            <option value="">Todos Períodos</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="OrdenarPor" class="control-label">Ordenar por:</label>
+        <select asp-for="OrdenarPor" class="form-control">
+            <option value="Nome">Nome</option>
+            <option value="Localidade">Localidade</option>
+            <option value="DataInicio">Data de Início</option>
+            <option value="DataFim">Data de Fim</option>
+            <option value="Preco">Preço</option>
+            <!-- Adicionar mais opções conforme necessário -->
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="OrdemAscendente" class="control-label">Ordem:</label>
+        <select asp-for="OrdemAscendente" class="form-control">
+            <option value="true">Ascendente</option>
+            <option value="false">Descendente</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-sm">Filtrar e Ordenar</button>
+}
+<a asp-action="Details" asp-route-id="@ViewBag.UserId">Detalhes</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Categoria</th>
+            <th>Data Inicio</th>
+            <th>Data Fim</th>
+            <th>Localidade</th>
+            <th>Preço</th>
+            <th>P.M.A</th>
+            <th>Estado</th>
+            <th>Ativo</th>
+            <!-- Adicionar outras colunas conforme necessário -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var habitacao in Model.habitacoes)
+        {
+            <tr>
+                <td>@habitacao.Nome</td>
+                <td>@habitacao.Descricao</td>
+                <td>@habitacao.Categoria</td>
+                <td>@habitacao.DataInicio</td>
+                <td>@habitacao.DataFim</td>
+                <td>@habitacao.Localidade</td>
+                <td>@habitacao.Preco</td>
+                <td>@habitacao.PeriodoMinimoArrendamento</td>
+                <td>@habitacao.Estado</td>
+                <td>@(habitacao.Ativo ? "Sim" : "Não")</td>
+            </tr>
+        }
+    </tbody>
+</table>

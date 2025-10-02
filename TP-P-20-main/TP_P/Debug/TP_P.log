@@ -1,0 +1,11 @@
+﻿  jogo.c
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(135,16): warning C4129: 'Q': unrecognized character escape sequence
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(158,9): warning C4101: 'i': unreferenced local variable
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(180,33): warning C4047: '<': 'int' differs in levels of indirection from 'int *'
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(181,37): warning C4047: '<': 'int' differs in levels of indirection from 'int *'
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(183,30): warning C4022: 'free': pointer mismatch for actual parameter 1
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(190,23): warning C4047: '=': 'int' differs in levels of indirection from 'int *'
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(191,23): warning C4047: '=': 'int' differs in levels of indirection from 'int *'
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(192,23): warning C4047: '=': 'int' differs in levels of indirection from 'int *'
+C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\TP_P\jogo.c(173,9): warning C4101: 'i': unreferenced local variable
+  TP_P.vcxproj -> C:\Users\mauro\Desktop\ISEC\2º Ano\2ºSemestre\P\Prog_MauroJesus_2019130796\TP_P\Debug\TP_P.exe

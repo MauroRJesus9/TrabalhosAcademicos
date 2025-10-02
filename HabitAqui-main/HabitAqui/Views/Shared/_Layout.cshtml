@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HabitAqui</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/HabitAqui.styles.css" asp-append-version="true" />
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- Navbar Start -->
+        <div class="container-fluid sticky-top bg-dark bg-light-radial shadow-sm px-5 pe-lg-0">
+            <nav class="navbar navbar-expand-lg bg-dark bg-light-radial navbar-dark py-3 py-lg-0">
+                <a asp-controller="Home" asp-action="Index" class="navbar-brand">
+                    <h1 class="m-0 display-4 text-uppercase text-white"><i class="bi bi-building text-primary me-2"></i>HabitAqui</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a asp-controller="Home" asp-action="Index" class="nav-item nav-link active">Home</a>
+
+                        @if (this.User.IsInRole("Admin"))
+                        {
+                            <a asp-controller="Empresas" asp-action="Index" class="nav-item nav-link active">Empresas</a>
+                        }
+                        
+
+                        @if (!this.User.IsInRole("Admin") && !this.User.IsInRole("Gestor") && !this.User.IsInRole("Funcionario"))
+                        {
+                            <a asp-controller="Habitacoes" asp-action="Index" class="nav-item nav-link active">Habitações</a>
+                        }
+
+                        @if (this.User.IsInRole("Admin") || this.User.IsInRole("Gestor") || this.User.IsInRole("Funcionario"))
+                        {
+                            <a asp-controller="HabitacoesEmpresa" asp-action="Index" class="nav-item nav-link active">Habitações da Empresa</a>
+                        }
+                        
+                        
+                        @if (this.User.IsInRole("Admin") || this.User.IsInRole("Gestor"))
+                        {
+                            <a asp-controller="Funcionarios" asp-action="Index" class="nav-item nav-link active">Funcionarios</a>
+                        }
+                        
+                        @if (this.User.IsInRole("Admin") || this.User.IsInRole("Funcionario") || this.User.IsInRole("Cliente") || this.User.IsInRole("Gestor"))
+                        {
+                            <a asp-controller="HabitacoesRating" asp-action="Index" class="nav-item nav-link active">Avaliações</a>
+                              <a class="nav-item nav-link" asp-area="" asp-controller="Arrendamentos" asp-action="Index">Arrendamentos</a>
+                        }
+                        <a asp-controller="Clientes" asp-action="Index" class="nav-item nav-link active">Clientes</a>
+
+                        <a asp-controller="UserAnonimo" asp-action="Index" class="nav-item nav-link active">Anonimo</a>
+                        <div>
+                            <partial name="_LoginPartial" />
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

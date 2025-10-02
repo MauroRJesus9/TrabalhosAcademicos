@@ -1,0 +1,100 @@
+﻿@model IEnumerable<TPV2.Models.Properties>
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<AplicationUser> userManager
+@{
+    ViewData["Title"] = "Propriedades";
+}
+
+<h1>Propriedades</h1>
+
+@if (User.IsInRole("Gestor"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-dark">Nova Propriedade</a>
+    </p>
+}
+<form method="post" asp-action="Index">
+    <label>Filtrar por categoria</label>
+    <div class="form-inline">
+        &nbsp;
+        <div class="form-group">
+            <select name="categoryId" class="form-control">
+                <option value="">Todas as categorias</option>
+                @foreach (var item in Model.GroupBy(x => x.CategoryId).Select(grp => grp.First()))
+                {
+                    <option value="@item.CProperty.CategoryId">@item.CProperty.Description</option>
+                }
+
+            </select>
+        </div>
+        &nbsp;
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+        </div>
+    </div>
+</form>
+&nbsp;
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Preço (Noite)
+            </th>
+            <th>
+                Morada
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)€
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CProperty.Description)
+                </td>
+                <td>
+                    @if (userManager.GetUserId(User) != null)
+                    {
+                        @if (User.IsInRole("Admin") || item.ProprietarioId.Contains(userManager.GetUserId(User)) && User.IsInRole("Gestor") || item.FuncionarioId.Contains(userManager.GetUserId(User)) && User.IsInRole("Funcionario"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.PropertyId" class="btn btn-primary">Editar</a>
+                        }
+                        <a asp-action="Details" asp-route-id="@item.PropertyId" class="btn btn-secondary">Detalhes</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.PropertyId" class="btn btn-danger">Apagar</a>
+                        }
+
+                    }
+                    else
+                    {
+                    <a asp-action="Details" asp-route-id="@item.PropertyId" class="btn btn-info">Detalhes</a>
+                    }
+                    @if (User.IsInRole("Cliente"))
+                    {
+
+                     <a asp-controller="Reserves" asp-action="Create" asp-route-id="@item.PropertyId" class="btn btn-info">Reservar</a>
+
+                    }
+                    <a asp-controller="ScoreClients" asp-action="Index" asp-route-id="@item.PropertyId" class="btn btn-success">Avaliações</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

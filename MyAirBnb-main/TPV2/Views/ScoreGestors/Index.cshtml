@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TPV2.Models.ScoreGestor>
+
+@{
+    ViewData["Title"] = "Avaliações dos Gestores";
+}
+
+<h1>Avaliações dos Gestores</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Gestor
+            </th>
+            <th>
+                Comentários
+            </th>
+            <th>
+                Score do Cliente
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SGGestorID.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScoreClient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SGUserID.UserName)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.ScoreGestorId" class="btn btn-secondary">Detalhes</a>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Delete" asp-route-id="@item.ScoreGestorId" class="btn btn-danger">Apagar</a>
+                }
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

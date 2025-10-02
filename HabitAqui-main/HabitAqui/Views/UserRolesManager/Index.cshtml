@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HabitAqui.ViewModels.UserRolesViewModel>
+@{
+	ViewData["Title"] = "Roles Manager";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User Roles</h1>
+<table class="table table-striped table-hover table-bordered mt-4">
+	<thead>	
+		<tr>
+			<th>Id</th>
+			<th>Nome Completo</th>
+            <th>NIF</th>
+            <th>Roles</th>
+            <th>Empresa</th>
+            <th>Action</th>
+		</tr>
+	 </thead>
+	 <tbody>
+@foreach (var item in Model) 
+{
+            <tr>
+                <td>
+                    @item.UserId
+                </td>
+                <td>
+                    @item.NomeCompleto
+                </td>
+                <td>
+                    @item.NIF
+                </td>
+                <td>
+                    @string.Join(" , ", item.Roles.ToList())
+                </td>
+                <td>
+                    @item.Empresa?.Nome
+                </td>
+                <td>
+                    <a class="btn-primary btn" asp-action="Details" asp-controller="UserRolesManager" asp-route-userId="@item.UserId" asp-route-empresaId="@item.EmpresaId">Edit Roles</a>
+                </td>
+            </tr>
+        }
+
+	</tbody>
+</table>

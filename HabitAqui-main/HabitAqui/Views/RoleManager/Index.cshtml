@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "Role Manager";
+   // Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<h1>Gestão de Roles</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="AddRole" asp-controller="RoleManager">
+            <div class="input-group">
+                <input name="roleName" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-warning">Add New Role</button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table table-striped table-hover table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Role</th>
+            <!-- <th>Id</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <!-- codigo a criar -->
+        @foreach(var role in Model)
+        {
+            <tr>
+                @* <td>
+                    @Html.DisplayFor(modelItem => role.Id)
+                </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => role.Name)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.Id">Editar</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>

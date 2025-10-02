@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h1>Roles</h1>
+
+@if (Model.Any())
+{
+    <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
+       asp-controller="administration">Adicionar nova role</a>
+
+    foreach (var role in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                Role Id : @role.Id
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@role.Name</h5>
+            </div>
+            <div class="card-footer">
+                <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                    <a asp-controller="Administration" asp-action="EditRole"
+                       asp-route-id="@role.Id" class="btn btn-primary">
+                        Editar
+                    </a>
+                    <span id="confirmDeleteSpan_@role.Id" style="display:none">
+                        <span>Tem a certeza que pretende eliminar?</span>
+                        <button type="submit" class="btn btn-danger">Sim</button>
+                        <a href="#" class="btn btn-primary"
+                           onclick="confirmDelete('@role.Id', false)">Não</a>
+                    </span>
+
+                    <span id="deleteSpan_@role.Id">
+                        <a href="#" class="btn btn-danger"
+                           onclick="confirmDelete('@role.Id', true)">Apagar</a>
+                    </span>
+                </form>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            Não roles criadas atualmente
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                Utilize o botão a baixo para adicionar
+            </h5>
+            <a class="btn btn-primary" style="width:auto"
+               asp-controller="administration" asp-action="CreateRole">
+                Criar role
+            </a>
+        </div>
+    </div>
+}
+
+@section Scripts{
+    <script src="~/js/ScriptDelete.js"></script>   
+ }

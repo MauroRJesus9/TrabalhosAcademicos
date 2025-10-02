@@ -1,0 +1,34 @@
+﻿@model HabitAqui.ViewModels.HabitacoesRatingViewModel
+
+@{
+    ViewData["Title"] = "Avaliar Habitação";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["ErroMensagem"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErroMensagem"]
+    </div>
+}
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Comentario" class="control-label">Comentário:</label>
+        <textarea asp-for="Comentario" class="form-control"></textarea>
+        <span asp-validation-for="Comentario" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="HabitacaoRatingId" />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Avaliar</button>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Voltar para a Lista</a>
+</div>

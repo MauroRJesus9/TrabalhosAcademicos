@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/fundo"
+    tools:context=".game.Modo1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fotojog1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon"/>
+
+        <TextView
+            android:id="@+id/nomejog1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="@string/player1"
+            android:layout_weight="1"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/player2"
+            android:layout_weight="1"
+            android:layout_marginLeft="3dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"/>
+
+    <GridLayout
+        android:id="@+id/gamePlacesGrid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="8"
+        android:orientation="vertical"
+        android:rowCount="8">
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/gameCurrentPlayerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/current_player"
+        android:textSize="22sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/player1"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/player2"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/peca_bombap1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/peca_bomba"
+            android:layout_weight="1"/>
+
+        <CheckBox
+            android:id="@+id/peca_bombap2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/peca_bomba"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:id="@+id/troca_pecasp1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/troca_pecas"
+            android:layout_weight="1"/>
+
+        <CheckBox
+            android:id="@+id/troca_pecasp2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/troca_pecas"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+﻿@model List<HabitAqui.ViewModels.HabitacoesRatingViewModel>
+
+@{
+    ViewData["Title"] = "Minhas Avaliações";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+<div class="mb-3">
+    <a asp-action="Create" class="btn btn-primary">Novo Rating</a>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Avaliação ID</th>
+            <th>Comentário</th>
+            <th>Habitação</th>
+            <th>Arrendamentos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rating in Model){
+            <tr>
+                <td>@rating.HabitacaoRatingId</td>
+                <td>@rating.Comentario</td>
+                <td>@rating.Habitacao</td>
+                <td>
+                    @if (rating.Arrendamentos != null)
+                    {
+                        <ul>
+                                <li>@rating.Arrendamentos.EstadoInicial</li>
+                                <li>@rating.Arrendamentos.EstadoFinal</li>
+                                <li>@rating.Arrendamentos.Custo</li>
+                                <li>@rating.Arrendamentos.Estado</li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <span>Sem Arrendamentos</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,88 @@
+﻿@model HabitAqui.ViewModels.PesquisaEmpresaViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>As nossas Empresas</h1>
+
+<p>Resultado da pesquisa por "@Model.TextoAPesquisar":</p>
+
+@if (Model.NumResultados > 0)
+{
+    <p>Existe(m) @Model.NumResultados Empresas(s) disponíveis</p>
+
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+        @foreach (Empresa e in Model.ListaDeEmpresas)
+        {
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+
+                        @if (string.IsNullOrEmpty(Model.TextoAPesquisar))
+                        {
+                            <h4 class="my-0 fw-normal">
+                                @Html.DisplayFor(model => e.Nome)
+                            </h4>
+                        }
+                        else
+                        {
+                            <div class="card-header py-3 text-white bg-primary border-primary">
+                                <h4 class="my-0 fw-normal">
+                                    @Html.Raw(e.Nome)
+                                </h4>
+                            </div>
+                        }
+
+                    </div>
+
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">
+                         @e.Avaliacao<small class="text-muted fw-light"></small>
+                        </h1>
+                        <h1>
+                            @Html.DisplayFor(modelItem => e.Ativo)
+                        </h1>
+                        @*@if (string.IsNullOrEmpty(Model.TextoAPesquisar))
+                        {
+                            <p>@Html.DisplayFor(model => c.DescricaoResumida)</p>
+                        }
+                        else
+                        {
+                            <p>@Html.Raw(c.DescricaoResumida)</p>
+                        }*@
+                        <a asp-controller="Empresas" asp-action="Details" asp-route-id="@e.Id"
+                           class="w-100 btn btn-lg btn-outline-primary">Saber mais</a>
+                    </div>
+                    
+                   @*<div class="card-body">
+                        <h1 class="card-title pricing-card-title">
+                            € @c.Preco<small class="text-muted fw-light"></small>
+                        </h1>
+                        @if (string.IsNullOrEmpty(Model.TextoAPesquisar))
+                        {
+                            <p>@Html.DisplayFor(model => c.DescricaoResumida)</p>
+                        }
+                        else
+                        {
+                            <p>@Html.Raw(c.DescricaoResumida)</p>
+                        }
+                        <a asp-controller="Cursos" asp-action="Details" asp-route-id="@c.Id"
+                           class="w-100 btn btn-lg btn-outline-primary">Saber mais</a>
+                    </div>*@
+                </div>
+            </div>
+        }
+
+    </div>
+}
+else
+{
+    <p class="alert alert-warning">
+        Não foi possível
+        encontrar Empresas com os dados introduzidos.
+        <br />
+        Por favor, reveja a sua pesquisa!
+    </p>
+}
+

@@ -1,0 +1,12 @@
+"Designação";"Espetaculo Modelo"
+"Tipo";"Drama"
+"Data";"2022";"12";"20"
+"Hora";"19";"30"
+"Duração";"60"
+"Local";"Convento São Francisco – Sala D. Afonso Henriques"
+"Localidade";"Coimbra"
+"País";"Portugal"
+"Classificação etária";"12"
+
+"Fila";"Lugar:Preço"
+"A";"1:20";"2:20";"3:20";"4:20"

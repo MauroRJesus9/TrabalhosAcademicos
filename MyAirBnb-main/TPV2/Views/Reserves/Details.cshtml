@@ -1,0 +1,67 @@
+﻿@model TPV2.Models.Reserves
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Reservas</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            CheckIn
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CheckIn)
+        </dd>
+        <dt class = "col-sm-2">
+            CheckOut
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CheckOut)
+        </dd>
+        <dt class = "col-sm-2">
+            Propriedade
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Property.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Observações
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Observations)
+        </dd>
+        <dt class = "col-sm-2">
+            Estado da Reserva
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            Cliente
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RClientIdReserve.UserName)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (!User.IsInRole("Cliente"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.ReserveId" class="btn btn-primary">Editar</a>
+
+    }
+    @if (Model.StatusId == 5 && User.IsInRole("Cliente"))
+    {
+        <a asp-controller="ScoreClients" asp-action="Create" asp-route-reserveid="@Model.ReserveId" asp-route-clientid="@Model.ClientId" asp-route-propertyid="@Model.PropertyId" class="btn btn-success">Atribuir avaliação</a>
+    }
+    @if (Model.StatusId == 5 && User.IsInRole("Gestor"))
+    {
+        <a asp-controller="ScoreGestors" asp-action="Create" asp-route-reserveid="@Model.ReserveId" asp-route-clientid="@Model.ClientId"  class="btn btn-success">Atribuir avaliação ao cliente</a>
+    }
+    <a asp-controller="ScoreClients" asp-action="Index" asp-route-userId="@Model.ClientId" class="btn btn-success">Consultar avaliações</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</div>

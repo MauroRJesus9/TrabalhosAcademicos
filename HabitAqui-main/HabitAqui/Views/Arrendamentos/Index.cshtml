@@ -1,0 +1,150 @@
+﻿@model IEnumerable<HabitAqui.Models.Arrendamentos>
+
+@{
+    ViewData["Title"] = "Arrendamentos";
+}
+
+<h1>Lista de Arrendamentos</h1>
+
+@if (User.IsInRole("Cliente"))
+{
+    <p>
+        <a asp-action="Create">Criar um novo Arrendamento</a>
+    </p>
+}
+
+<form asp-controller="Arrendamentos" asp-action="Index" method="get" class="form-inline">
+    <div class="mb-3" style="display: inline-block;">
+        <label for="dataInicio" class="form-label">Data Início:</label>
+        <input type="date" class="form-control" id="dataInicio" name="dataInicio">
+    </div>
+
+    <div class="mb-3" style="display: inline-block;">
+        <label for="dataFim" class="form-label">Data Fim:</label>
+        <input type="date" class="form-control" id="dataFim" name="dataFim">
+    </div>
+
+    <div class="mb-3" style="display: inline-block;">
+        <label for="categoriaId" class="form-label">Categoria:</label>
+        <select asp-items="ViewBag.ListaCategoriaHabitacoes"
+                name="categoriaId"
+                class="form-control">
+            <option value="" selected>Categoria</option>
+        </select>
+    </div>
+
+    <div class="mb-3" style="display: inline-block;">
+        <label for="habitacaoId" class="form-label">Habitação:</label>
+        <select asp-items="ViewBag.ListaHabitacoes"
+                name="habitacaoId"
+                class="form-control">
+            <option value="" selected>Habitação</option>
+        </select>
+    </div>
+
+    <div class="mb-3" style="display: inline-block;">
+        <label for="clienteId" class="form-label">Cliente:</label>
+        <select asp-items="ViewBag.ListaClientes"
+                name="clienteId"
+                class="form-control">
+            <option value="" selected>Cliente</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Custo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Habitacoes.Categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoInicial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Habitacoes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Custo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Habitacoes.Categoria.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoInicial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.NomeCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Habitacoes.Nome)
+            </td>
+            <td>
+                @if (!this.User.IsInRole("Cliente"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                }
+                   
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+
+                @if (!this.User.IsInRole("Cliente"))
+                {
+                        <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                }
+                
+                <!-- Botoes para confirmar ou rejeitar arrendamento -->
+                 @if ((this.User.IsInRole("Gestor") || this.User.IsInRole("Funcionario") || this.User.IsInRole("Admin")) && item.Estado.Equals("Pendente"))
+                {
+                    <a asp-controller="Arrendamentos" asp-action="ConfirmarArrendamento" asp-route-arrendamentoId="@item.Id">Confirmar</a>
+                    <a asp-controller="Arrendamentos" asp-action="RejeitarArrendamento" asp-route-arrendamentoId="@item.Id">Rejeitar</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

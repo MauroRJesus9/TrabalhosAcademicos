@@ -1,0 +1,77 @@
+﻿@model HabitAqui.Models.Arrendamentos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Arrendamentos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Custo" class="control-label"></label>
+                <input asp-for="Custo" class="form-control" />
+                <span asp-validation-for="Custo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UtilizadoresId" class="control-label"></label>
+                <select asp-for="UtilizadoresId" class="form-control" asp-items="ViewBag.ListaClientes"></select>
+                <span asp-validation-for="UtilizadoresId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresaId" class="control-label"></label>
+                <select asp-for="EmpresaId" class="form-control" asp-items="ViewBag.ListaEmpresas"></select>
+                <span asp-validation-for="EmpresaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HabitacoesId" class="control-label"></label>
+                <select asp-for="HabitacoesId" class="form-control" asp-items="ViewBag.ListaHabitacoes"></select>
+                <span asp-validation-for="HabitacoesId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Estado" class="control-label"></label>
+                <input asp-for="Estado" class="form-control" />
+                <span asp-validation-for="Estado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if(Model.Estado.Equals("Confirmado"))
+                {
+                    <a asp-action="EstadoHabitacao" asp-route-id="@Model.Id">Adicionar Estado</a>
+                }
+            </div>
+            @*<div class="form-group">
+                @if(Model.EstadoFinal == null)
+                {
+                    <a asp-action="EstadoHabitacao" asp-route-id="@Model.Id">Adicionar Estado Final</a>
+                }
+ 
+            </div>*@
+            <div class="form-group">
+                <label asp-for="DataInicio" class="control-label"></label>
+                <input asp-for="DataInicio" class="form-control" />
+                <span asp-validation-for="DataInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataFim" class="control-label"></label>
+                <input asp-for="DataFim" class="form-control" />
+                <span asp-validation-for="DataFim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

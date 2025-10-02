@@ -1,0 +1,30 @@
+﻿@model TPV2.Models.ReserveStatus
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Estados de Reserva</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Descrição
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            Removido
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.isRemoved)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.StatusId" class="btn btn-primary">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</div>

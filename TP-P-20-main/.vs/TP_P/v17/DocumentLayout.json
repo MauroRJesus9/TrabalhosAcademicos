@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\jogo.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|solutionrelative:TP_P\\jogo.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\tabuleiro.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|solutionrelative:TP_P\\tabuleiro.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\TP_P.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|solutionrelative:TP_P\\TP_P.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\utils.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3CF0BA04-8FB0-48E5-8648-6D18AE0A9373}|TP_P\\TP_P.vcxproj|solutionrelative:TP_P\\utils.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "tabuleiro.c",
+              "DocumentMoniker": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\tabuleiro.c",
+              "RelativeDocumentMoniker": "TP_P\\tabuleiro.c",
+              "ToolTip": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\tabuleiro.c",
+              "RelativeToolTip": "TP_P\\tabuleiro.c",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-06T14:57:29.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "utils.c",
+              "DocumentMoniker": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\utils.c",
+              "RelativeDocumentMoniker": "TP_P\\utils.c",
+              "ToolTip": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\utils.c",
+              "RelativeToolTip": "TP_P\\utils.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-06T14:57:00.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "jogo.c",
+              "DocumentMoniker": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\jogo.c",
+              "RelativeDocumentMoniker": "TP_P\\jogo.c",
+              "ToolTip": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\jogo.c",
+              "RelativeToolTip": "TP_P\\jogo.c",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAAAAwAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-06T14:56:21.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TP_P.c",
+              "DocumentMoniker": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\TP_P.c",
+              "RelativeDocumentMoniker": "TP_P\\TP_P.c",
+              "ToolTip": "C:\\Users\\mauro\\Downloads\\TPs\\TP_P\\TP_P\\TP_P.c",
+              "RelativeToolTip": "TP_P\\TP_P.c",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2025-08-06T14:56:14.764Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

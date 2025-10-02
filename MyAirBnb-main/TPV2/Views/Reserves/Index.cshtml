@@ -1,0 +1,70 @@
+﻿@model IEnumerable<TPV2.Models.Reserves>
+
+@{
+    ViewData["Title"] = "Reservas";
+}
+
+<h1>Reservas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                CheckIn
+            </th>
+            <th>
+                CheckOut
+            </th>
+            <th>
+                Propriedade
+            </th>
+            <th>
+                Estado da Reserva
+            </th>
+            @if (!User.IsInRole("Cliente"))
+            {
+                <th>
+                    Cliente
+                </th>
+            }
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CheckOut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Property.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status.Description)
+            </td>
+            @if (!User.IsInRole("Cliente"))
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.RClientIdReserve.UserName)
+                </td>
+            }
+            <td>
+                @if (!User.IsInRole("Cliente"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.ReserveId" class="btn btn-primary">Editar</a>
+                }
+                    <a asp-action="Details" asp-route-id="@item.ReserveId" class="btn btn-secondary">Detalhes</a> 
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-action="Delete" asp-route-id="@item.ReserveId" class="btn btn-danger">Apagar</a>
+                }
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>

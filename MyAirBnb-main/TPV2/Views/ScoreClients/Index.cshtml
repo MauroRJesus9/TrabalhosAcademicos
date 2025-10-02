@@ -1,0 +1,83 @@
+﻿@model IEnumerable<TPV2.Models.ScoreClient>
+
+@{
+    ViewData["Title"] = "Avaliações Clientes";
+}
+
+<h1>Avaliações Clientes</h1>
+
+@if (!User.IsInRole("Cliente")) { 
+<form method="post" asp-action="Index">
+    <label>Filtrar por cliente</label>
+    <div class="form-inline">
+        &nbsp;
+        <div class="form-group">
+            <select name="userId" class="form-control">
+                <option value="">Todos os clientes</option>
+                @foreach (var item in Model.GroupBy(x => x.SCClientID).Select(grp => grp.First()))
+                {
+                    <option value="@item.SCClientID.Id">@item.SCClientID.UserName</option>
+                }
+            </select>
+        </div>
+        &nbsp;
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
+        </div>
+    </div>
+</form>
+}
+
+&nbsp;
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Comentário
+            </th>
+            <th>
+                Score Propriedade
+            </th>
+            <th>
+                Score Proprietario
+            </th>
+            <th>
+                Score Funcionario
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SCClientID.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScorePropriedade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScoreProprietario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScoreFuncionário)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.ScoreClientId" class="btn btn-danger">Apagar</a>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.ScoreClientId" class="btn btn-secondary">Detalhes</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

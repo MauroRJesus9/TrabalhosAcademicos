@@ -1,0 +1,150 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<AplicationUser> userManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TPV2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <img src="~/Images/logo.png" style="width: 25px;height:25px; opacity: 80%; border-radius: 3%;margin-right:5px" />
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <b>MyAirBnb</b>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @* Comentario*@
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="dropdown">
+                                <a asp-area="" class="nav-link text-dark" data-toggle="dropdown">Propriedades</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Properties" asp-action="">Propriedades</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="PropertyCategories" asp-action="">Categorias</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @* Comentario*@
+                            <li class="dropdown">
+                                <a class="nav-link text-dark" asp-area="" data-toggle="dropdown">Reservas</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Reserves" asp-action="">Reservas</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="ReserveStatus" asp-action="">Estados de Reservas</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="nav-link text-dark" asp-area="" data-toggle="dropdown">Avaliações</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="ScoreClients" asp-action="">Avaliações de Clientes</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="ScoreGestors" asp-action="">Avaliações de Gestores</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a class="nav-link text-dark" asp-area="" data-toggle="dropdown">Painel de Admin</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="ListUsers">Users</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Administration" asp-action="ListRoles">Roles</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Properties" asp-action="">Propriedades</a>
+                            </li>
+
+                            if (User.IsInRole("Gestor"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Reserves" asp-action="">Reservas</a>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="nav-link text-dark" asp-area="" data-toggle="dropdown">Avaliações</a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="ScoreClients" asp-action="">Avaliações de Clientes</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="ScoreGestors" asp-action="">Avaliações de Gestores</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SetRoleFuncionario" asp-action="SetRoleFunc">Adicionar funcionarios</a>
+                                </li>
+                            }
+                            if (User.IsInRole("Funcionario"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Reserves" asp-action="">Reservas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ScoreClients" asp-action="">Avaliações de Clientes</a>
+                                </li>
+                            }
+                            if (User.IsInRole("Cliente"))
+                            {
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Reserves" asp-action="">Reservas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="ScoreClients" asp-action="Index" asp-route-userId="@userManager.GetUserId(User)">Avaliações</a>
+                                </li>
+
+                            }
+                        }
+
+                        @* Comentario*@
+
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted text-center">
+        <div class="container">
+            &copy; 2022 - MyAirBnb - PWEB 21/22
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

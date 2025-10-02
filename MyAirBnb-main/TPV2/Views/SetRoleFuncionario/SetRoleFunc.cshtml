@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AtribFuncionario>
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<AplicationUser> userManager
+@inject RoleManager<IdentityRole> roleManager
+
+@{
+    ViewBag.Title = "Utilizadores";
+}
+
+<h1>Atribuir Funcionarios</h1>
+
+@if (Model.Any())
+{
+
+    <div class="card mb-3">
+        <div class="card-header">
+            Utilizadores
+        </div>
+        <div class="card-body">
+            <form method="post" asp-controller="SetRoleFuncionario" asp-action="SetRoleFuncForm">
+                <div class="form-group">
+                    <select name="func_esc" class="form-control" required>
+                        @foreach (var user in Model)
+                        {
+                            <option value="@user.UserId">@user.UserName</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Selecionar</button>
+                </div>
+                    
+            </form>
+        </div>
+    </div>
+}
+else
+{
+<div class="card mb-3">
+    <div class="card-header">
+        Não existem clientes disponíveis.
+    </div>
+</div>
+}

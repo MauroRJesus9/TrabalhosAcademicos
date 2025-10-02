@@ -1,0 +1,125 @@
+﻿@model HabitAqui.Models.Arrendamentos
+
+@{
+    ViewData["Title"] = "Estado Habitação";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Estado da Habitação</h1>
+
+<h4>Editar Estado da Habitação</h4>
+<hr />
+
+<div>
+    <div class="row">
+        <div class="col-md-4">
+            <h5>Estado da Habitação - Entrega ao Cliente</h5>
+            <hr />
+            <form asp-action="EstadoHabitacao" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="HabitacoesId" value="@Model.HabitacoesId" />
+                <input type="hidden" asp-for="UtilizadoresId" value="@Model.UtilizadoresId" />
+                <input type="hidden" asp-for="Cliente" value="@Model.Cliente" />
+                <div class="form-group">
+                    <label asp-for="EstadoInicial.EquipamentosOpcionais" class="control-label"></label>
+                    <input asp-for="EstadoInicial.EquipamentosOpcionais" class="form-control" />
+                    <span asp-validation-for="EstadoInicial.EquipamentosOpcionais" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input asp-for="EstadoInicial.Dano" class="form-check-input" />
+                        <label class="form-check-label" asp-for="EstadoInicial.Dano"></label>
+                    </div>
+                    <span asp-validation-for="EstadoInicial.Dano" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstadoInicial.Observações" class="control-label"></label>
+                    <input asp-for="EstadoInicial.Observações" class="form-control" />
+                    <span asp-validation-for="EstadoInicial.Observações" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EstadoInicial.FuncionarioEntregaId" class="control-label"></label>
+                    <select asp-for="EstadoInicial.FuncionarioEntregaId" class="form-control" asp-items="ViewBag.Funcionarios"></select>
+                    <span asp-validation-for="EstadoInicial.FuncionarioEntregaId" class="text-danger"></span>
+                </div>
+
+                <br />
+                <h5>Estado da Habitação - Receção do Cliente</h5>
+                <hr />
+                <div class="form-group">
+                    <label asp-for="EstadoFinal.EquipamentosOpcionais" class="control-label"></label>
+                    <input asp-for="EstadoFinal.EquipamentosOpcionais" class="form-control" />
+                    <span asp-validation-for="EstadoFinal.EquipamentosOpcionais" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input asp-for="EstadoFinal.Dano" class="form-check-input" />
+                        <label class="form-check-label" asp-for="EstadoFinal.Dano"></label>
+                    </div>
+                    <span asp-validation-for="EstadoFinal.Dano" class="text-danger"></span>
+                </div>
+
+                <br />
+                <div class="form-floating">
+                    <div>
+                        <div class="form-group">
+                            <label>Escolher imagens: </label>
+                            <label asp-for="@Model.ImagemDanos"></label>
+                            <input type="hidden" asp-for="@Model.ImagemDanos" value="@Model.ImagemDanos" />
+                            <input asp-for="@Model.ImagemDanos" type="file" name="fotografias"
+                                   id="files" accept=".jpeg,image/png,image/jpeg,.png,.jpg" class="form-control">
+                            <span asp-validation-for="ImagemDanos" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+
+                <div class="row d-flex">
+                    @if (ViewBag.Imagens != null)
+                    {
+                        @foreach (var imagem in ViewBag.Imagens)
+                        {
+                            <div class="col p-2 m-2" style="border-radius: 10px">
+                                <a asp-action="deleteImage"
+                                   asp-route-id="@Model.EstadoFinalId"
+                                   asp-route-image="@imagem">
+
+                                    <svg bootstrap-icon="XCircleFill"
+                                         onclick="return confirm('Deseja mesmo apagar?')"
+                                         class="text-danger" width="20" height="24"
+                                         aria-label="Trash"></svg>
+                                </a>
+
+                                <img src="@imagem"
+                                     class="img-thumbnail"
+                                     style="max-width: 150px; max-height: 150px" />
+
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EstadoFinal.Observações" class="control-label"></label>
+                    <input asp-for="EstadoFinal.Observações" class="form-control" />
+                    <span asp-validation-for="EstadoFinal.Observações" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="EstadoFinal.FuncionarioEntregaId" class="control-label"></label>
+                    <select asp-for="EstadoFinal.FuncionarioEntregaId" class="form-control" asp-items="ViewBag.Funcionarios"></select>
+                    <span asp-validation-for="EstadoFinal.FuncionarioEntregaId" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
